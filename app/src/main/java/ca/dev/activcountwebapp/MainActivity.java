@@ -1,10 +1,7 @@
 package ca.dev.activcountwebapp;
-
 import android.annotation.SuppressLint;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
