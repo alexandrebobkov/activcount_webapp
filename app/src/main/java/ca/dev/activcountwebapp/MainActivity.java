@@ -1,12 +1,12 @@
 package ca.dev.activcountwebapp;
-import android.annotation.SuppressLint;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+//import android.annotation.SuppressLint;
+//import androidx.appcompat.app.ActionBar;
+//import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+//import android.os.Handler;
+//import android.view.MotionEvent;
+//import android.view.View;
 import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 
 public class MainActivity extends Activity {
 
-    private WebView web_view = null;
+    private WebView web_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
