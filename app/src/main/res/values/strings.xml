@@ -2,7 +2,8 @@
     <string name="app_name">activcount Widget</string>
     <string name="appwidget_text">activcount</string>
     <string name="add_widget">Add widget</string>
-    <string name="business_name_fr">Alexandre Comptabilite Specialise Ltee</string>
-    <string name="business_name_en">Alexander Specialized Accounting</string>
-    <string name="contacts">(343) 202 - 2043 books@activcount.ca</string>
+    <string name="business_name_fr">Alexandre\nComptabilite Specialise Ltee</string>
+    <string name="business_name_en">Alexander\nSpecialized Accounting</string>
+    <string name="contact_phone">(343) 202 - 2043</string>
+    <string name="contact_email">books@activcount.ca</string>
 </resources>

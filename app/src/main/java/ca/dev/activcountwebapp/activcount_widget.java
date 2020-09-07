@@ -14,7 +14,7 @@ public class activcount_widget extends AppWidgetProvider {
                                 int appWidgetId) {
 
         CharSequence widgetText_001 = context.getString(R.string.business_name_en);
-        CharSequence widgetText_002 = context.getString(R.string.contacts);
+        CharSequence widgetText_002 = context.getString(R.string.contact_phone);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget);
         views.setTextViewText(R.id.appwidget_text_001, widgetText_001);

@@ -1,3 +1,15 @@
+/**
+ *
+ *  Date Created:       August 30, 2020
+ *  Last time updated:  September 7, 2020
+ *  Revision:
+ *
+ *  Author: Alexandre Bobkov
+ *  Company: Alexandre Comptabilite Specialise Ltee.
+ *
+ *  Program purpose: To display mobile website within app.
+ *
+ **/
 package ca.dev.activcountwebapp;
 //import android.annotation.SuppressLint;
 //import androidx.appcompat.app.ActionBar;
@@ -36,7 +48,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        web_view.loadUrl("https://app.activcount.ca");
+        web_view.loadUrl("https://mobile.activcount.ca");
     }
 
     @Override
