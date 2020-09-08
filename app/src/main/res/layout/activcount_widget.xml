@@ -2,67 +2,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerInParent="false"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="false"
-    android:background="#3A9F44"
-    android:gravity="clip_horizontal|top"
+    android:background="@android:color/transparent"
     android:padding="@dimen/widget_margin">
 
-    <TextView
-        android:id="@+id/appwidget_text_002"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/appwidget_text_001"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="#3A9F44"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/contact_phone"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        android:typeface="normal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/appwidget_text_002"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="#3A9F44"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/contact_email"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        android:typeface="normal"/>
 
 
-    <TextView
-        android:id="@+id/appwidget_text_001"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        
-        android:layout_marginRight="8dp"
-        android:background="#3A9F44"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/business_name_en"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:typeface="normal" />
+        <ImageView
+            android:id="@+id/img_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/img_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_time"/>
+
+        <ImageView
+            android:id="@+id/img_business_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_date"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/contact_phone"
+            android:textAlignment="center"
+            android:textColor="#3A9F44"
+            android:textSize="20sp"
+            android:typeface="normal"/>
+
+        <!--TextView
+            android:id="@+id/appwidget_text_001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+
+            android:layout_marginRight="8dp"
+            android:background="#3A9F44"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/business_name_en"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:typeface="normal" /-->
+
+        <TextView
+            android:id="@+id/appwidget_text_002"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_business_name"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/contact_phone"
+            android:textAlignment="center"
+            android:textColor="#3A9F44"
+            android:textSize="30sp"
+            android:typeface="normal" />
+
+        <!--TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidget_text_002"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="#3A9F44"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/contact_email"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:typeface="normal"/-->
 
 </RelativeLayout>
