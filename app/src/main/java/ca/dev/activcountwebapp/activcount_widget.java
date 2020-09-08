@@ -47,11 +47,11 @@ public class activcount_widget extends AppWidgetProvider {
         //views.setTextViewText(R.id.appwidget_text_001, widgetText_001);
         views.setTextViewText(R.id.appwidget_text_002, widgetText_002);
 
-        SimpleDateFormat date_format = new SimpleDateFormat("dd MMM, yyyy");
-        SimpleDateFormat time_format = new SimpleDateFormat("HH : MM");
+        SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
+        SimpleDateFormat time_format = new SimpleDateFormat("H : mm");
 
         //views.setImageViewBitmap(R.id.img_time, BuildUpdate("20:25", 100f, context));
-        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 80f, context));
+        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 100f, context));
         views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 100f, context));
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", 80f, context));
 

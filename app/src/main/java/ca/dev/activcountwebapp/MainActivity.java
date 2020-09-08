@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
             }
         });
 
+        // Load mobile website.
         web_view.loadUrl("https://mobile.activcount.ca");
     }
 
