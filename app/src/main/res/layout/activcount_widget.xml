@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="#223A9F44"
     android:updatePeriodMillis="500"
     android:padding="@dimen/widget_margin">
 
@@ -75,21 +75,32 @@
             android:textSize="35sp"
             android:typeface="normal" />
 
-        <!--TextView
+        <TextView
+            android:id="@+id/brand_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/appwidget_text_002"
+            android:layout_below="@+id/logo"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:background="#3A9F44"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
             android:fontFamily="sans-serif-condensed"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/contact_email"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:typeface="normal"/-->
+            android:gravity="end|center_vertical|center_horizontal"
+            android:text="@string/my_brand"
+            android:textColor="#3A9F44"
+            android:textSize="15dp"
+            android:typeface="normal" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType = "fitXY"
+            />
 
 </RelativeLayout>

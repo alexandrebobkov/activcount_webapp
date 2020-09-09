@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
@@ -42,10 +43,15 @@ public class activcount_widget extends AppWidgetProvider {
 
         CharSequence widgetText_001 = context.getString(R.string.business_name_en);
         CharSequence widgetText_002 = context.getString(R.string.contact_phone);
+        CharSequence brandname = context.getString(R.string.my_brand);
+
+        //ImageView image = (ImageView) findViewById(R.id.logo);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget);
         //views.setTextViewText(R.id.appwidget_text_001, widgetText_001);
         views.setTextViewText(R.id.appwidget_text_002, widgetText_002);
+        views.setTextViewText(R.id.brand_name, brandname);
+        views.setImageViewResource(R.id.logo, R.mipmap.ic_launcher);
 
         SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
         SimpleDateFormat time_format = new SimpleDateFormat("H : mm");
