@@ -1,6 +1,6 @@
 # activcount_webapp
  
- Branding application.
+ Branding basic application.
  
  ![App Logo](/screenshots/logo.png)
 
