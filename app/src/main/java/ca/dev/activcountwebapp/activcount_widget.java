@@ -3,6 +3,8 @@ package ca.dev.activcountwebapp;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -19,12 +21,16 @@ import java.util.Date;
  */
 public class activcount_widget extends AppWidgetProvider {
 
+    static private IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+
+
     public static Bitmap BuildUpdate (String txt_time, float size, Context context) {
         Paint paint = new Paint();
         paint.setTextSize(size);
         Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/Comfortaa-Regular.ttf");
         paint.setTypeface(ourCustomTypeface);
-        paint.setColor(Color.parseColor("#3A9F44"));
+        //paint.setColor(Color.parseColor("#3A9F44"));
+        paint.setColor(Color.parseColor("#FFFFFF"));
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setSubpixelText(true);
         paint.setAntiAlias(true);
@@ -41,6 +47,8 @@ public class activcount_widget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
+        Intent batteryStatus = context.registerReceiver(null, ifilter);
+
         CharSequence widgetText_001 = context.getString(R.string.business_name_en);
         CharSequence widgetText_002 = context.getString(R.string.contact_phone);
         CharSequence brandname = context.getString(R.string.my_brand);
@@ -51,14 +59,14 @@ public class activcount_widget extends AppWidgetProvider {
         //views.setTextViewText(R.id.appwidget_text_001, widgetText_001);
         views.setTextViewText(R.id.appwidget_text_002, widgetText_002);
         views.setTextViewText(R.id.brand_name, brandname);
-        views.setImageViewResource(R.id.logo, R.mipmap.ic_launcher);
+        views.setImageViewResource(R.id.logo, R.mipmap.ic_logo);
 
         SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
         SimpleDateFormat time_format = new SimpleDateFormat("H : mm");
 
         //views.setImageViewBitmap(R.id.img_time, BuildUpdate("20:25", 100f, context));
-        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 100f, context));
-        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 100f, context));
+        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 115f, context));
+        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 80f, context));
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", 80f, context));
 
         //views.setImageViewBitmap(R.id.imageView);

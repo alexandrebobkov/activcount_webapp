@@ -11,13 +11,41 @@
             android:id="@+id/img_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/time" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/item"
+            android:text="@string/time"
+            android:textSize="25sp" />
+
         <ImageView
             android:id="@+id/img_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_time"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/item"
             android:text="@string/date" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+
+            android:background="#00FFFFFF"
+            android:clickable="true"
+            android:contentDescription="@string/item"
+            android:cropToPadding="true"
+            android:focusable="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/img_business_name"
@@ -27,8 +55,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="1dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/item"
             android:fontFamily="sans-serif-medium"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/business_name_en"
@@ -37,70 +66,35 @@
             android:textSize="25sp"
             android:typeface="normal" />
 
-        <!--TextView
-            android:id="@+id/appwidget_text_001"
+        <TextView
+            android:id="@+id/brand_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_below="@+id/img_business_name"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-
-            android:layout_marginRight="8dp"
-            android:background="#3A9F44"
+            android:background="@android:color/transparent"
             android:fontFamily="sans-serif-condensed"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/business_name_en"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:typeface="normal" /-->
+            android:gravity="end|center_vertical|center_horizontal"
+            android:text="@string/my_brand"
+            android:textColor="#3A9F44"
+            android:textSize="15sp"
+            android:typeface="normal"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/appwidget_text_002"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_business_name"
+            android:layout_alignTop="@+id/brand_name"
+            android:layout_alignEnd="@+id/brand_name"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/contact_phone"
             android:textAlignment="center"
             android:textColor="#3A9F44"
-            android:textSize="35sp"
+            android:textSize="15sp"
             android:typeface="normal" />
-
-        <TextView
-            android:id="@+id/brand_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="end|center_vertical|center_horizontal"
-            android:text="@string/my_brand"
-            android:textColor="#3A9F44"
-            android:textSize="15dp"
-            android:typeface="normal" />
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:scaleType = "fitXY"
-            />
 
 </RelativeLayout>

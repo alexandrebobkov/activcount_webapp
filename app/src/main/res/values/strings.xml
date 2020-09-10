@@ -4,9 +4,11 @@
     <string name="add_widget">Add widget</string>
     <string name="business_name_fr">Alexandre Comptabilite Specialise Ltee</string>
     <string name="business_name_en">Alexander Specialized Accounting</string>
-    <string name="contact_phone">(343) 202 - 2043</string>
+    <string name="contact_phone">(343) 202 - 2043 | books@activcount.ca</string>
+    <string name="mailing_address">M060 - 1557 Carling Ave. Ottawa ON K1Z 7M4</string>
     <string name="contact_email">books@activcount.ca</string>
     <string name="time">00:00</string>
     <string name="date">26 May, 1985</string>
     <string name="my_brand">activcount.ca</string>
+    <string name="item">item</string>
 </resources>
