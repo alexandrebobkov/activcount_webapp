@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -37,6 +38,9 @@ public class activcount_widget extends AppWidgetProvider {
 
     static private IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
     private PendingIntent service;
+    private AlarmManager alarmManager;
+    private PendingIntent alarmIntent;
+    private String ACTION_DATE_ALARM = "WidgetDateAlarm";
 
 
     public static Bitmap BuildUpdate (String txt_time, float size, Context context) {
@@ -101,20 +105,26 @@ public class activcount_widget extends AppWidgetProvider {
 
     @Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         final Intent i = new Intent (context, UpdateService.class);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        //calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
 
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
-
         }
 
         if (service == null) {
             service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
         }
 
-        manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 60000, service);
+        //manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 15000, service);
+        manager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, service);
         //manager.setRepeating(AlarmManager.RTC, System.currentTimeMillis()+60000, 60000, service);
     }
 
@@ -133,9 +143,31 @@ public class activcount_widget extends AppWidgetProvider {
         }
     }*/
 
-    @Override
+    /*@Override
     public void onEnabled(Context context) {
         // Enter relevant functionality for when the first widget is created
+    }*/
+
+    @Override
+    public void onEnabled(Context context) {
+        // Set an Alarm to change the date everyday at 00:00
+        alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(context, activcount_widget.class);
+        intent.setAction(ACTION_DATE_ALARM);
+
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        //calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+
+        // Fire the alarm everyday at 00:00
+        //alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
+        alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntent);
+
+        super.onEnabled(context);
     }
 
     @Override
