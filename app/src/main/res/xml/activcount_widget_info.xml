@@ -6,6 +6,6 @@
     android:minHeight="110dp"
     android:previewImage="@drawable/activcount_widget_5x2"
     android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="15000"
+    android:updatePeriodMillis="30000"
     android:widgetCategory="home_screen">
 </appwidget-provider>

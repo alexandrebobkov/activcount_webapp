@@ -110,7 +110,7 @@ public class activcount_widget extends AppWidgetProvider {
             service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
         }
 
-        manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 600, service);
+        manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 30000, service);
     }
 
     @Override
