@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -12,6 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.IBinder;
 import android.os.SystemClock;
 import android.widget.ImageView;
 import android.widget.RemoteViews;
@@ -96,6 +98,7 @@ public class activcount_widget extends AppWidgetProvider {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }*/
+
     @Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -104,14 +107,31 @@ public class activcount_widget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
+
         }
 
         if (service == null) {
             service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
         }
 
-        manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 30000, service);
+        manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 60000, service);
+        //manager.setRepeating(AlarmManager.RTC, System.currentTimeMillis()+60000, 60000, service);
     }
+
+    /*@Override
+    public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        ComponentName thisWidget = new ComponentName (context, activcount_widget.class);
+
+        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+        for (int widgetId : allWidgetIds) {
+            RemoteViews remoteViews = new RemoteViews( context.getPackageName(), R.layout.activcount_widget);
+            Intent intent = new Intent (context, activcount_widget.class);
+            intent.setAction (AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast (context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            appWidgetManager.updateAppWidget(widgetId, remoteViews);
+        }
+    }*/
 
     @Override
     public void onEnabled(Context context) {
@@ -122,5 +142,10 @@ public class activcount_widget extends AppWidgetProvider {
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
     }
+
+    /*@Override
+    public IBinder onBind (Intent intent) {
+        return null;
+    }*/
 }
 
