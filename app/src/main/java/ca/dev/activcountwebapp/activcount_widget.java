@@ -68,6 +68,19 @@ public class activcount_widget extends AppWidgetProvider {
 
         Intent batteryStatus = context.registerReceiver(null, ifilter);
 
+        // Setup update button to send an update request as a pending intent.
+        Intent intentUpdate = new Intent (context, activcount_widget.class);
+        // The intent action must be an app widget update.
+        intentUpdate.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        // Include the widget ID to be updated as an intent extra.
+        int[] idArray = new int[]{appWidgetId};
+        intentUpdate.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, idArray);
+        // Wrap it all in a pending intent to send a broadcast.
+        // Use the app widget ID as the request code (third argument) so that
+        // each intent is unique.
+        PendingIntent pendingUpdate = PendingIntent.getBroadcast(context, appWidgetId, intentUpdate, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
         CharSequence widgetText_001 = context.getString(R.string.business_name_en);
         CharSequence widgetText_002 = context.getString(R.string.contact_phone);
         CharSequence brandname = context.getString(R.string.my_brand);
@@ -79,13 +92,15 @@ public class activcount_widget extends AppWidgetProvider {
         views.setTextViewText(R.id.appwidget_text_002, widgetText_002);
         views.setTextViewText(R.id.brand_name, brandname);
         views.setImageViewResource(R.id.logo, R.mipmap.ic_logo);
+        // Assign the pending intent to the button onClick handler
+        views.setOnClickPendingIntent(R.id.btn_refresh, pendingUpdate);
 
         SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
-        SimpleDateFormat time_format = new SimpleDateFormat("H : mm");
+        SimpleDateFormat time_format = new SimpleDateFormat("H : mm : ss");
 
         //views.setImageViewBitmap(R.id.img_time, BuildUpdate("20:25", 100f, context));
-        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 115f, context));
-        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 80f, context));
+        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 85f, context));
+        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 50f, context));
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", 80f, context));
 
         //views.setImageViewBitmap(R.id.imageView);
