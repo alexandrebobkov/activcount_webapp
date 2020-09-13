@@ -104,7 +104,14 @@
                     android:id="@+id/btn_refresh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_refresh" />
+                    android:background="#9BDC9E"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/btn_refresh"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#AE0B42"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
         </LinearLayout>
 
 </RelativeLayout>

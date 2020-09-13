@@ -94,9 +94,12 @@ public class activcount_widget extends AppWidgetProvider {
         views.setImageViewResource(R.id.logo, R.mipmap.ic_logo);
         // Assign the pending intent to the button onClick handler
         views.setOnClickPendingIntent(R.id.btn_refresh, pendingUpdate);
+        views.setOnClickPendingIntent(R.id.logo, pendingUpdate);
+        views.setOnClickPendingIntent(R.id.img_time, pendingUpdate);
+        views.setOnClickPendingIntent(R.id.img_date, pendingUpdate);
 
         SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
-        SimpleDateFormat time_format = new SimpleDateFormat("H : mm : ss");
+        SimpleDateFormat time_format = new SimpleDateFormat("HH : mm : ss");
 
         //views.setImageViewBitmap(R.id.img_time, BuildUpdate("20:25", 100f, context));
         views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 85f, context));
