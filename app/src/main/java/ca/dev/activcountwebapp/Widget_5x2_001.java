@@ -73,7 +73,10 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
+        SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
 
+        views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
+        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
         views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
