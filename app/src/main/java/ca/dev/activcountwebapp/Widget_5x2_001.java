@@ -1,3 +1,39 @@
+/*
+* MIT License
+*
+* Copyright (c) 2020 Alexandre Comptabilite Specialise Ltee
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+/*
+*
+*  Date Created:        August 30, 2020
+*  Last time updated:   September 7, 2020
+*  Revision:
+*
+*  Author:              Alexandre Bobkov
+*  Company:             Alexandre Comptabilite Specialise Ltee.
+*
+*  Program description: application with launcher widget.
+*
+*/
+
 package ca.dev.activcountwebapp;
 
 import android.app.AlarmManager;
@@ -6,13 +42,11 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.webkit.WebView;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
@@ -31,9 +65,10 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
 
     public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
+
         Paint paint = new Paint();
         paint.setTextSize(size);
-        Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), font_path);// "fonts/Comfortaa-Regular.ttf");
+        Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), font_path);
         paint.setTypeface(ourCustomTypeface);
         //paint.setColor(Color.parseColor("#3A9F44"));
         paint.setColor(Color.parseColor("#FFFFFF"));
@@ -88,7 +123,6 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
     public void launch_web(Context c) {
         Intent mailClient = new Intent(Intent.ACTION_VIEW);
-        //mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
         c.startActivity(mailClient);
     }
 
@@ -100,7 +134,6 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        //calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
 
         // There may be multiple widgets active, so update all of them
@@ -112,9 +145,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
             service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
         }
 
-        //manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), 15000, service);
         manager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, service);
-        //manager.setRepeating(AlarmManager.RTC, System.currentTimeMillis()+60000, 60000, service);
     }
 
     @Override
