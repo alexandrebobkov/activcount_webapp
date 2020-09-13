@@ -15,6 +15,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.RemoteViews;
 
@@ -36,6 +37,7 @@ import java.util.Date;
  */
 public class activcount_widget extends AppWidgetProvider {
 
+    private WebView web_view;
     static private IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
     private PendingIntent service;
     private AlarmManager alarmManager;
@@ -80,6 +82,12 @@ public class activcount_widget extends AppWidgetProvider {
         // each intent is unique.
         PendingIntent pendingUpdate = PendingIntent.getBroadcast(context, appWidgetId, intentUpdate, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        // Setup logo icon to launch webview as a pending intent.
+        Intent intentWeb = new Intent (context, MainActivity.class);
+        // Wrap it all in a pending intent to send a broadcast.
+        // Use the app widget ID as the request code (third argument) so that
+        // each intent is unique.
+        PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
 
         CharSequence widgetText_001 = context.getString(R.string.business_name_en);
         CharSequence widgetText_002 = context.getString(R.string.contact_phone);
@@ -94,7 +102,8 @@ public class activcount_widget extends AppWidgetProvider {
         views.setImageViewResource(R.id.logo, R.mipmap.ic_logo);
         // Assign the pending intent to the button onClick handler
         views.setOnClickPendingIntent(R.id.btn_refresh, pendingUpdate);
-        views.setOnClickPendingIntent(R.id.logo, pendingUpdate);
+        //views.setOnClickPendingIntent(R.id.logo, pendingUpdate);
+        views.setOnClickPendingIntent(R.id.logo, pendingWeb);
         views.setOnClickPendingIntent(R.id.img_time, pendingUpdate);
         views.setOnClickPendingIntent(R.id.img_date, pendingUpdate);
 
@@ -111,6 +120,12 @@ public class activcount_widget extends AppWidgetProvider {
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
+    }
+
+    public void launch_web(Context c) {
+        Intent mailClient = new Intent(Intent.ACTION_VIEW);
+        //mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
+        c.startActivity(mailClient);
     }
 
     /*@Override

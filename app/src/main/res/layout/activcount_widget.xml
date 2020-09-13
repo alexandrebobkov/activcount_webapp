@@ -111,7 +111,9 @@
                     android:textAllCaps="false"
                     android:textColor="#AE0B42"
                     android:textSize="12sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
         </LinearLayout>
 
 </RelativeLayout>
