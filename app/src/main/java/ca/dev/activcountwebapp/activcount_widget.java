@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -13,20 +12,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.os.IBinder;
-import android.os.SystemClock;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.RemoteViews;
-
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.SystemClock;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -44,11 +31,17 @@ public class activcount_widget extends AppWidgetProvider {
     private PendingIntent alarmIntent;
     private String ACTION_DATE_ALARM = "WidgetDateAlarm";
 
+    /** FONTS **/
+    private static String path_font_comfortaa  = "fonts/Comfortaa-Regular.ttf";
+    private static String path_font_archistico = "fonts/Archistico_Simple.ttf";
+    private static String path_font_fff_tusj = "fonts/FFF_Tusj.ttf";
+    private static String path_font_jura_light = "fonts/Jura-Light.ttf";
 
-    public static Bitmap BuildUpdate (String txt_time, float size, Context context) {
+
+    public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
         Paint paint = new Paint();
         paint.setTextSize(size);
-        Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/Comfortaa-Regular.ttf");
+        Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), font_path);// "fonts/Comfortaa-Regular.ttf");
         paint.setTypeface(ourCustomTypeface);
         //paint.setColor(Color.parseColor("#3A9F44"));
         paint.setColor(Color.parseColor("#FFFFFF"));
@@ -56,12 +49,12 @@ public class activcount_widget extends AppWidgetProvider {
         paint.setSubpixelText(true);
         paint.setAntiAlias(true);
         float baseline = -paint.ascent();
-        int width = (int) (paint.measureText(txt_time) + 0.5f);
+        int width = (int) (paint.measureText(text) + 0.5f);
         int height = (int) (baseline+paint.descent() + 0.5f);
         Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
         //Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(image);
-        canvas.drawText(txt_time, 0, baseline, paint);
+        canvas.drawText(text, 0, baseline, paint);
         return image;
     }
 
@@ -97,7 +90,7 @@ public class activcount_widget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget);
         //views.setTextViewText(R.id.appwidget_text_001, widgetText_001);
-        views.setTextViewText(R.id.appwidget_text_002, widgetText_002);
+        views.setTextViewText(R.id.appwidget_text_contact, widgetText_002);
         views.setTextViewText(R.id.brand_name, brandname);
         views.setImageViewResource(R.id.logo, R.mipmap.ic_logo);
         // Assign the pending intent to the button onClick handler
@@ -108,12 +101,13 @@ public class activcount_widget extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.img_date, pendingUpdate);
 
         SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
-        SimpleDateFormat time_format = new SimpleDateFormat("HH : mm : ss");
+        SimpleDateFormat time_format = new SimpleDateFormat("HH : mm");
 
         //views.setImageViewBitmap(R.id.img_time, BuildUpdate("20:25", 100f, context));
-        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), 85f, context));
-        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), 50f, context));
-        views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", 80f, context));
+        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), path_font_fff_tusj, 70f, context));
+        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
+        views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_jura_light, 40f, context));
 
         //views.setImageViewBitmap(R.id.imageView);
         //ImageView logo_view = (ImageView)R.id.imageView;

@@ -65,10 +65,10 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@+id/img_date"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="0dp"
+            android:gravity="bottom"
             android:orientation="vertical">
 
                 <ImageView
@@ -78,16 +78,19 @@
                     android:layout_marginTop="1dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/item"
-                    android:fontFamily="sans-serif-medium"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:text="@string/business_name_en"
-                    android:textAlignment="center"
-                    android:textColor="#3A9F44"
-                    android:textSize="25sp"
-                    android:typeface="normal" />
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/appwidget_imgtxt_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/item"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:textAlignment="center"/>
 
                 <TextView
-                    android:id="@+id/appwidget_text_002"
+                    android:id="@+id/appwidget_text_contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
@@ -98,7 +101,8 @@
                     android:textAlignment="center"
                     android:textColor="#3A9F44"
                     android:textSize="15sp"
-                    android:typeface="normal" />
+                    android:typeface="normal"
+                    android:visibility="gone"/>
 
                 <Button
                     android:id="@+id/btn_refresh"
