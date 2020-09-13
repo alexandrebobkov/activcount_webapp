@@ -75,11 +75,18 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
 
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
+        views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
+    }
+
+    public void launch_web(Context c) {
+        Intent mailClient = new Intent(Intent.ACTION_VIEW);
+        //mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
+        c.startActivity(mailClient);
     }
 
     @Override
