@@ -21,6 +21,16 @@
                 android:resource="@xml/activcount_widget_info" />
         </receiver>
 
+        <receiver android:name=".Widget_5x2_001">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_5x2_info" />
+        </receiver>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

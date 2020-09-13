@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#223A9F44"
-    android:updatePeriodMillis="500"
-    android:padding="@dimen/widget_margin">
+    android:updatePeriodMillis="15000">
 
         <ImageView
             android:id="@+id/img_time"
@@ -84,7 +83,7 @@
 
                 <ImageView
                     android:id="@+id/appwidget_imgtxt_contact"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/item"
                     android:gravity="center|center_horizontal|center_vertical"
