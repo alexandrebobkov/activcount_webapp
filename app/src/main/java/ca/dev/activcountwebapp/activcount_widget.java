@@ -107,7 +107,7 @@ public class activcount_widget extends AppWidgetProvider {
         views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), path_font_fff_tusj, 70f, context));
         views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
-        views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_jura_light, 40f, context));
+        views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 
         //views.setImageViewBitmap(R.id.imageView);
         //ImageView logo_view = (ImageView)R.id.imageView;

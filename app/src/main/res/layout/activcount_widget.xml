@@ -16,7 +16,8 @@
             android:layout_marginTop="8dp"
             android:contentDescription="@string/item"
             android:text="@string/time"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/img_date"
@@ -87,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/item"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/appwidget_text_contact"
@@ -102,7 +103,7 @@
                     android:textColor="#3A9F44"
                     android:textSize="15sp"
                     android:typeface="normal"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/btn_refresh"
