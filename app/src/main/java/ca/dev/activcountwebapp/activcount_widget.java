@@ -109,6 +109,9 @@ public class activcount_widget extends AppWidgetProvider {
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 
+        /** WIDGET #2 **/
+        //views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
+
         //views.setImageViewBitmap(R.id.imageView);
         //ImageView logo_view = (ImageView)R.id.imageView;
 

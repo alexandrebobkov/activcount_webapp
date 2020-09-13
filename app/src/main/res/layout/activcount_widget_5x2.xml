@@ -6,12 +6,51 @@
     android:updatePeriodMillis="500"
     android:padding="@dimen/widget_margin">
 
+    <ImageView
+        android:id="@+id/widget_5x2_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:contentDescription="@string/item"
+        android:cropToPadding="true"
+        android:focusable="true"
+        android:scaleType="fitCenter" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:background="#0C112C">
+        android:background="#212223"
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/widget5x2_img_business_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="0dp"
+            android:contentDescription="@string/item" />
+
+        <ImageView
+            android:id="@+id/widget5x2_img_txt_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="0dp"
+            android:contentDescription="@string/item" />
     </LinearLayout>
 </RelativeLayout>
