@@ -70,7 +70,6 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         paint.setTextSize(size);
         Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), font_path);
         paint.setTypeface(ourCustomTypeface);
-        //paint.setColor(Color.parseColor("#3A9F44"));
         paint.setColor(Color.parseColor("#FFFFFF"));
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setSubpixelText(true);
@@ -150,7 +149,6 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-
         super.onEnabled(context);
     }
 
