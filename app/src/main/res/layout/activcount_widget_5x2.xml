@@ -36,8 +36,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:background="#212223"
         android:orientation="vertical">
@@ -47,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="6dp"
             android:layout_marginRight="6dp"
             android:layout_marginBottom="0dp"
             android:contentDescription="@string/item" />
@@ -59,7 +60,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginTop="0dp"
             android:layout_marginRight="6dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="6dp"
             android:contentDescription="@string/item" />
     </LinearLayout>
 </RelativeLayout>

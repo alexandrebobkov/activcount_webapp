@@ -4,6 +4,6 @@
     android:initialLayout="@layout/app_launcher_widget_1x1"
     android:minWidth="40dp"
     android:minHeight="40dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewImage="@drawable/widget_1x1"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen"></appwidget-provider>
