@@ -130,7 +130,7 @@ public class activcount_widget extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.img_time, pendingUpdate);
         views.setOnClickPendingIntent(R.id.img_date, pendingUpdate);
 
-        SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
+        SimpleDateFormat date_format = new SimpleDateFormat("E d MMM yyyy");
         SimpleDateFormat time_format = new SimpleDateFormat("HH : mm");
 
         views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), path_font_fff_tusj, 70f, context));

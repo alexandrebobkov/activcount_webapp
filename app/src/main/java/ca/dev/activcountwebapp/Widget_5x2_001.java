@@ -107,14 +107,22 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
-        SimpleDateFormat date_format = new SimpleDateFormat("d MMM, yyyy");
+        // Date format NN MMM, YYYY
+        SimpleDateFormat date_format = new SimpleDateFormat("d MMM. yyyy");
+        //SimpleDateFormat date_format = new SimpleDateFormat("d MMM. EEEE");
+        // Week day format
+        SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
+        //SimpleDateFormat day_format = new SimpleDateFormat("yyyy");
 
         views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
-        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        // Display date
+        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 70f, context));
+        // Display weekday
+        views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
         views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
-        views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
+        views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043   [RC]", path_font_comfortaa, 40f, context));
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
