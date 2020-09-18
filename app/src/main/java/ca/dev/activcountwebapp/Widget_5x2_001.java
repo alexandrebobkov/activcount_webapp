@@ -42,12 +42,16 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.widget.RemoteViews;
+
+import androidx.annotation.RequiresApi;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -63,6 +67,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
     private static String path_font_fff_tusj    = "fonts/FFF_Tusj.ttf";
     private static String path_font_jura_light  = "fonts/Jura-Light.ttf";
     private static Calendar time;
+    private int build;
 
 
     public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
@@ -85,10 +90,13 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         return image;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
 
         time = Calendar.getInstance();
+        build = PackageManager.VERSION_CODE_HIGHEST;
+
         int hr = time.get(time.DAY_OF_MONTH);
         // Setup update button to send an update request as a pending intent.
         Intent intentUpdate = new Intent (context, Widget_5x2_001.class);
