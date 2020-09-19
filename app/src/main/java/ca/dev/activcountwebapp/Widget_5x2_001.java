@@ -120,18 +120,21 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
         // Date format NN MMM, YYYY
         //SimpleDateFormat date_format = new SimpleDateFormat("MMM d, yyyy");
-        SimpleDateFormat date_format = new SimpleDateFormat("EE, MMMM");
+        SimpleDateFormat date_format = new SimpleDateFormat("MMMM");
         //SimpleDateFormat date_format = new SimpleDateFormat("d MMM. EEEE");
         // Week day format
         SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
         //SimpleDateFormat day_format = new SimpleDateFormat("yyyy");
 
         views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
-        // Display date
-        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 90f, context));
+        // Display day of week
+        views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        // Display month
+        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
         // Display weekday
-        //views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 120f, context));
-        views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(numToString(hr), path_font_fff_tusj, 120f, context));
+        // views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
+        // Spell day of month
+        views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(dateToString(hr), path_font_fff_tusj, 80f, context));
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
         views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
@@ -178,70 +181,41 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    private String numToString (int num) {
+    private String dateToString (int num) {
         String s = "";
 
         if (num == 0) s = "zero";
-        else if (num == 1) s = "one";
-        else if (num == 2) s = "two";
-        else if (num == 3) s = "three";
-        else if (num == 4) s = "four";
-        else if (num == 5) s = "five";
-        else if (num == 6) s = "six";
-        else if (num == 7) s = "seven";
-        else if (num == 8) s = "eight";
-        else if (num == 9) s = "nine";
-        else if (num == 10) s = "ten";
-        else if (num == 11) s = "eleven";
-        else if (num == 12) s = "twelve";
-        else if (num == 13) s = "thirteen";
-        else if (num == 14) s = "fourteen";
-        else if (num == 15) s = "fifteen";
-        else if (num == 16) s = "sixteen";
-        else if (num == 17) s = "seventeen";
-        else if (num == 18) s = "eighteen";
-        else if (num == 19) s = "nineteen";
-        else if (num == 20) s = "twenty";
-        else if (num == 21) s = "twenty one";
-        else if (num == 22) s = "twenty two";
-        else if (num == 23) s = "twenty three";
-        else if (num == 24) s = "twenty four";
-        else if (num == 25) s = "twenty five";
-        else if (num == 26) s = "twenty six";
-        else if (num == 27) s = "twenty seven";
-        else if (num == 28) s = "twenty eight";
-        else if (num == 29) s = "twenty nine";
-        else if (num == 30) s = "thirty";
-        else if (num == 31) s = "thirty one";
-        else if (num == 32) s = "thirty two";
-        else if (num == 33) s = "thirty three";
-        else if (num == 34) s = "thirty four";
-        else if (num == 35) s = "thirty five";
-        else if (num == 36) s = "thirty six";
-        else if (num == 37) s = "thirty seven";
-        else if (num == 38) s = "thirty eight";
-        else if (num == 39) s = "thirty nine";
-        else if (num == 40) s = "forty";
-        else if (num == 41) s = "forty one";
-        else if (num == 42) s = "forty two";
-        else if (num == 43) s = "forty three";
-        else if (num == 44) s = "forty four";
-        else if (num == 45) s = "forty five";
-        else if (num == 46) s = "forty six";
-        else if (num == 47) s = "forty seven";
-        else if (num == 48) s = "forty eight";
-        else if (num == 49) s = "forty nine";
-        else if (num == 50) s = "fifty";
-        else if (num == 51) s = "fifty one";
-        else if (num == 52) s = "fifty two";
-        else if (num == 53) s = "fifty three";
-        else if (num == 54) s = "fifty four";
-        else if (num == 55) s = "fifty five";
-        else if (num == 56) s = "fifty six";
-        else if (num == 57) s = "fifty seven";
-        else if (num == 58) s = "fifty eight";
-        else if (num == 59) s = "fifty nine";
-        else if (num == 60) s = "sixty";
+        else if (num == 1) s = "First";
+        else if (num == 2) s = "Second";
+        else if (num == 3) s = "Third";
+        else if (num == 4) s = "Fourth";
+        else if (num == 5) s = "Fifth";
+        else if (num == 6) s = "Sixth";
+        else if (num == 7) s = "Seventh";
+        else if (num == 8) s = "Eighth";
+        else if (num == 9) s = "Ninth";
+        else if (num == 10) s = "Tenth";
+        else if (num == 11) s = "Eleventh";
+        else if (num == 12) s = "Twelveth";
+        else if (num == 13) s = "Thirteenth";
+        else if (num == 14) s = "Fourteenth";
+        else if (num == 15) s = "Fifteenth";
+        else if (num == 16) s = "Sixteenth";
+        else if (num == 17) s = "Seventeenth";
+        else if (num == 18) s = "Eighteenth";
+        else if (num == 19) s = "Nineteenth";
+        else if (num == 20) s = "Twentiest";
+        else if (num == 21) s = "Twenty First";
+        else if (num == 22) s = "Twenty Second";
+        else if (num == 23) s = "Twenty Third";
+        else if (num == 24) s = "Twenty Fourth";
+        else if (num == 25) s = "Twenty Fifth";
+        else if (num == 26) s = "Twenty Sixth";
+        else if (num == 27) s = "Twenty Seventh";
+        else if (num == 28) s = "Twenty Eighth";
+        else if (num == 29) s = "Twenty Nineth";
+        else if (num == 30) s = "Thirtiest";
+        else if (num == 31) s = "Thirty First";
 
         return s;
     }
