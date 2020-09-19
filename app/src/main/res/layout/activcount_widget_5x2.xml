@@ -21,13 +21,21 @@
             android:layout_marginTop="0dp"
             android:layout_marginLeft="8sp"
             android:contentDescription="@string/item" />
+
+        <TextView
+            android:id="@+id/widget5x2_txt_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widget_5x2_logo"
+            android:textAlignment="textStart"
+            android:textSize="12sp" />
         <ImageView
             android:id="@+id/widget_5x2_img_date"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="false"
             android:layout_marginTop="-4sp"
-            android:layout_marginLeft="16sp"
+            android:layout_marginRight="8sp"
             android:contentDescription="@string/item" />
         <ImageView
             android:id="@+id/widget_5x2_img_weekday"
@@ -35,9 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginTop="-4dp"
-            android:layout_marginLeft="32sp"
+            android:layout_marginLeft="8sp"
             android:contentDescription="@string/item" />
     </LinearLayout>
+
+
 
     <ImageView
         android:id="@+id/widget_5x2_logo"

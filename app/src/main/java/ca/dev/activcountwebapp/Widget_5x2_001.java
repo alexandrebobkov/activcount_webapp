@@ -66,7 +66,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
     private static String path_font_archistico  = "fonts/Archistico_Simple.ttf";
     private static String path_font_fff_tusj    = "fonts/FFF_Tusj.ttf";
     private static String path_font_jura_light  = "fonts/Jura-Light.ttf";
-    private static Calendar time;
+    private static Calendar time, calendar;
     private int build;
 
 
@@ -95,6 +95,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
                                  int appWidgetId) {
 
         time = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         build = PackageManager.VERSION_CODE_HIGHEST;
 
         int hr = time.get(time.DAY_OF_MONTH);
@@ -119,8 +120,8 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
         // Date format NN MMM, YYYY
-        //SimpleDateFormat date_format = new SimpleDateFormat("MMM d, yyyy");
-        SimpleDateFormat date_format = new SimpleDateFormat("MMMM");
+        SimpleDateFormat date_format = new SimpleDateFormat("MMM d, yyyy");
+        //SimpleDateFormat date_format = new SimpleDateFormat("MMMM");
         //SimpleDateFormat date_format = new SimpleDateFormat("d MMM. EEEE");
         // Week day format
         SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
@@ -128,17 +129,21 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
         views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
         // Display day of week
-        views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         // Display month
         views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
         // Display weekday
         // views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         // Spell day of month
-        views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(dateToString(hr), path_font_fff_tusj, 80f, context));
+        //views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(dateToString(hr), path_font_fff_tusj, 80f, context));
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
         views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043     [RC]", path_font_comfortaa, 40f, context));
+
+        views.setTextColor(R.id.widget5x2_txt_stats, Color.WHITE);
+        //views.setTextViewText(R.id.widget5x2_txt_stats, "week: " +(new Date().toString()));
+        views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) +" | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
