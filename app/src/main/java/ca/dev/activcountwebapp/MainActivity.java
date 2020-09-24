@@ -35,6 +35,7 @@
  */
 
 package ca.dev.activcountwebapp;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.KeyEvent;
@@ -42,9 +43,33 @@ import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
 public class MainActivity extends Activity {
 
+    private static final String TAG = "MainActivity";
     private WebView web_view;
+
+    private static final String PROJECT_ID = "<YOUR-PROJECT-ID>";
+    private static final String BASE_URL = "https://fcm.googleapis.com";
+    private static final String FCM_SEND_ENDPOINT = "/v1/projects/" + PROJECT_ID + "/messages:send";
+
+    private static final String MESSAGING_SCOPE = "https://www.googleapis.com/auth/firebase.messaging";
+    private static final String[] SCOPES = { MESSAGING_SCOPE };
+
+    private static final String TITLE = "FCM Notification";
+    private static final String BODY = "Notification from FCM";
+    public static final String MESSAGE_KEY = "message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +90,19 @@ public class MainActivity extends Activity {
         });
 
         // Load mobile website.
-        web_view.loadUrl("https://mobile.activcount.ca");
+        //web_view.loadUrl("https://mobile.activcount.ca");
+        web_view.loadUrl("https://www.activcount.ca");
+
+        // If a notification message is tapped, any data accompanying the notification
+        // message is available in the intent extras.
+        // Handle possible data accompanying notification message.
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+                // navigate the app based on param
+            }
+        }
     }
 
     @Override
