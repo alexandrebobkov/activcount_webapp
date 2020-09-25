@@ -53,9 +53,12 @@ import android.widget.RemoteViews;
 
 import androidx.annotation.RequiresApi;
 
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import static java.lang.Math.round;
 
 public class Widget_5x2_001 extends AppWidgetProvider {
 
@@ -113,10 +116,12 @@ public class Widget_5x2_001 extends AppWidgetProvider {
 
         // Setup logo icon to launch webview as a pending intent.
         Intent intentWeb = new Intent (context, MainActivity.class);
+        Intent contactsWeb = new Intent (context, ContactInfoWebPage.class);
         // Wrap it all in a pending intent to send a broadcast.
         // Use the app widget ID as the request code (third argument) so that
         // each intent is unique.
         PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingContactsWebPage = PendingIntent.getActivity(context,appWidgetId,contactsWeb,PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
         // Date format NN MMM, YYYY
@@ -141,9 +146,18 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043     [RC]", path_font_comfortaa, 40f, context));
 
+        // Set color
         views.setTextColor(R.id.widget5x2_txt_stats, Color.WHITE);
+        views.setTextColor(R.id.widget5x2_txt_week_num_year, Color.WHITE);
+        views.setTextColor(R.id.widget5x2_txt_week_num_month, Color.WHITE);
+
         //views.setTextViewText(R.id.widget5x2_txt_stats, "week: " +(new Date().toString()));
-        views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) +" | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
+        views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) + " | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
+
+        // Display week number of the year
+        views.setTextViewText(R.id.widget5x2_txt_week_num_year, "week: " +calendar.get(Calendar.WEEK_OF_YEAR) + " of " +calendar.getMaximum(Calendar.WEEK_OF_YEAR) + " or " + Float.toString(round(((float)(calendar.get(Calendar.WEEK_OF_YEAR) / (float)calendar.getMaximum(Calendar.WEEK_OF_YEAR))*100f))) + "%");
+        // Display week number of the month
+        views.setTextViewText(R.id.widget5x2_txt_week_num_month, "week of month: " +calendar.get(Calendar.WEEK_OF_MONTH));
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

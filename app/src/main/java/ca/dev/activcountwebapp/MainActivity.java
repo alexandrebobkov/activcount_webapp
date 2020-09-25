@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
 
         // Load mobile website.
         //web_view.loadUrl("https://mobile.activcount.ca");
-        web_view.loadUrl("https://www.activcount.ca");
+        web_view.loadUrl("https://www.activcount.ca/about");
 
         // If a notification message is tapped, any data accompanying the notification
         // message is available in the intent extras.
