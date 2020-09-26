@@ -149,6 +149,7 @@ public class MainActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
+    // Set URL address to load.
     public static void setWebPageUrl (String url) {
         web_page_url = url;
     }
