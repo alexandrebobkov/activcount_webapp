@@ -119,12 +119,14 @@ public class MainActivity extends Activity {
             }
         });
 
-        // Load mobile website.
+
+        // Set URL of page to load.
         //web_view.loadUrl("https://mobile.activcount.ca");
         //web_view.loadUrl("https://www.activcount.ca/about");
         //setWebPageUrl("https://www.activcount.ca");
-
         setWebPageUrl("https://mobile.activcount.ca");
+
+        // Load mobile website.
         web_view.loadUrl(web_page_url);
 
         // If a notification message is tapped, any data accompanying the notification
