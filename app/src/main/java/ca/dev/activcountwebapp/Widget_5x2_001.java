@@ -50,6 +50,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.widget.RemoteViews;
+import android.widget.ProgressBar;
 
 import androidx.annotation.RequiresApi;
 
@@ -96,6 +97,8 @@ public class Widget_5x2_001 extends AppWidgetProvider {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
+
+        MainActivity.setWebPageUrl("https://www.activcount.ca");
 
         time = Calendar.getInstance();
         calendar = Calendar.getInstance();

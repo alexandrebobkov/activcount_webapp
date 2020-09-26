@@ -9,8 +9,8 @@ android {
         applicationId "ca.dev.activcountwebapp"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 32
-        versionName "2.17"
+        versionCode 33
+        versionName "2.18"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
