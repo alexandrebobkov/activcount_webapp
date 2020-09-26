@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".Widget_Calendar_3x2">
+
+        <receiver android:name=".Widget_5x2_001">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget__calendar_3x2_info" />
+                android:resource="@xml/widget_5x2_info" />
         </receiver>
         <receiver android:name=".AppLauncherWidget_1x1">
             <intent-filter>
@@ -28,24 +29,6 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_launcher_widget_1x1_info" />
-        </receiver>
-        <receiver android:name=".activcount_widget">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/activcount_widget_info" />
-        </receiver>
-        <receiver android:name=".Widget_5x2_001">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_5x2_info" />
         </receiver>
 
         <activity android:name=".MainActivity">
