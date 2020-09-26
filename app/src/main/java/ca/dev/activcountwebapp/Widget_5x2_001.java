@@ -140,7 +140,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         // Display day of week
         views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         // Display month
-        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 85f, context));
         // Display weekday
         // views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         // Spell day of month
