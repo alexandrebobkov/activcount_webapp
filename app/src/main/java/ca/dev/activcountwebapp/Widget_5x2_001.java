@@ -98,7 +98,7 @@ public class Widget_5x2_001 extends AppWidgetProvider {
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
 
-        MainActivity.setWebPageUrl("https://www.activcount.ca");
+        MainActivity.setWebPageUrl("https://www.activcount.ca/about");
 
         time = Calendar.getInstance();
         calendar = Calendar.getInstance();
