@@ -98,7 +98,8 @@ public class Widget_5x2_001 extends AppWidgetProvider {
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
 
-        MainActivity.setWebPageUrl("https://www.activcount.ca/about");
+        //MainActivity.setWebPageUrl("https://www.activcount.ca/about");
+        MainActivity.setWebPageUrl("https://mobile.activcount.ca");
 
         time = Calendar.getInstance();
         calendar = Calendar.getInstance();
@@ -147,20 +148,23 @@ public class Widget_5x2_001 extends AppWidgetProvider {
         views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
         views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
-        views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043     [RC]", path_font_comfortaa, 40f, context));
+        views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 
         // Set color
         views.setTextColor(R.id.widget5x2_txt_stats, Color.WHITE);
         views.setTextColor(R.id.widget5x2_txt_week_num_year, Color.WHITE);
         views.setTextColor(R.id.widget5x2_txt_week_num_month, Color.WHITE);
 
+        //views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) + " | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
+        //views.setTextViewText(R.id.widget5x2_txt_week_num_year, "week: " +calendar.get(Calendar.WEEK_OF_YEAR) + " of " +calendar.getMaximum(Calendar.WEEK_OF_YEAR) + " or " + Float.toString(round(((float)(calendar.get(Calendar.WEEK_OF_YEAR) / (float)calendar.getMaximum(Calendar.WEEK_OF_YEAR))*100f))) + "%");
+        //views.setTextViewText(R.id.widget5x2_txt_week_num_month, "week of month: " +calendar.get(Calendar.WEEK_OF_MONTH));
+
         //views.setTextViewText(R.id.widget5x2_txt_stats, "week: " +(new Date().toString()));
-        views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) + " | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
+
 
         // Display week number of the year
-        views.setTextViewText(R.id.widget5x2_txt_week_num_year, "week: " +calendar.get(Calendar.WEEK_OF_YEAR) + " of " +calendar.getMaximum(Calendar.WEEK_OF_YEAR) + " or " + Float.toString(round(((float)(calendar.get(Calendar.WEEK_OF_YEAR) / (float)calendar.getMaximum(Calendar.WEEK_OF_YEAR))*100f))) + "%");
         // Display week number of the month
-        views.setTextViewText(R.id.widget5x2_txt_week_num_month, "week of month: " +calendar.get(Calendar.WEEK_OF_MONTH));
+
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
