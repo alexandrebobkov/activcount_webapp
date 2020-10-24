@@ -1,19 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
   "applicationId": "ca.dev.activcountwebapp",
-  "variantName": "release",
+  "variantName": "processReleaseResources",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "properties": [],
-      "versionCode": 34,
-      "versionName": "2.19",
-      "enabled": true,
+      "versionCode": 35,
+      "versionName": "2.20",
       "outputFile": "app-release.apk"
     }
   ]
