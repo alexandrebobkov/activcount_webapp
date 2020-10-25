@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ca.dev.activcountwebapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,11 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="ExtraText">
 
         <receiver
-            android:name=".Widget_5x2_calendar"
-            android:label="widget 5x2">
+            android:icon="@mipmap/ic_launcher"
+            android:name="Widget_5x2_calendar"
+            android:label="widget-5x2">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -24,8 +27,8 @@
         </receiver>
 
         <receiver
-            android:name=".AppLauncherWidget_square"
-            android:label="widget square">
+            android:name="AppLauncherWidget_square"
+            android:label="widget-square">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -34,7 +37,8 @@
                 android:resource="@xml/app_launcher_widget_1x1_info" />
         </receiver>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
