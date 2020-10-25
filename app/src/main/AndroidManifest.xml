@@ -12,20 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <receiver android:name=".Widget_5x2_calendar">
+        <receiver
+            android:name=".Widget_5x2_calendar"
+            android:label="widget 5x2">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_5x2_info" />
         </receiver>
-        <receiver android:name=".AppLauncherWidget_square">
+
+        <receiver
+            android:name=".AppLauncherWidget_square"
+            android:label="widget square">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_launcher_widget_1x1_info" />
