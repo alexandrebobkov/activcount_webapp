@@ -5,7 +5,7 @@
     android:initialLayout="@layout/activcount_widget_5x2"
     android:minWidth="330dp"
     android:minHeight="110dp"
-    android:previewImage="@drawable/widget_5x2"
+    android:previewImage="@drawable/activcount_widget_5x2"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="15000"
     android:widgetCategory="home_screen">
