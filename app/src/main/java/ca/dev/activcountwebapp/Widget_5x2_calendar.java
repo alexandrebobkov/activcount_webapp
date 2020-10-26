@@ -175,6 +175,7 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
         c.startActivity(mailClient);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 

@@ -15,9 +15,20 @@
         tools:ignore="ExtraText">
 
         <receiver
-            android:icon="@mipmap/ic_launcher"
             android:name="Widget_5x2_calendar"
-            android:label="widget-5x2">
+            android:label="widget-date">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_5x2_info" />
+        </receiver>
+
+
+        <receiver
+            android:name="activcount_widget"
+            android:label="widget-date-rc">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -41,7 +52,6 @@
             android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
