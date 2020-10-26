@@ -22,7 +22,6 @@ public class UpdateService extends Service {
     @Override
     public int onStartCommand (Intent intent, int flags, int startId) {
         RemoteViews view = new RemoteViews(getPackageName(), R.layout.activcount_widget);
-        //ComponentName theWidget = new ComponentName(this, UpdatingWidget.class);
         ComponentName theWidget = new ComponentName(this, activcount_widget.class);
         AppWidgetManager manager = AppWidgetManager.getInstance(this);
         manager.updateAppWidget(theWidget, view);

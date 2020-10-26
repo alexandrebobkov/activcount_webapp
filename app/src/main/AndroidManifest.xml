@@ -25,18 +25,6 @@
                 android:resource="@xml/widget_5x2_date_info" />
         </receiver>
 
-
-        <receiver
-            android:name="activcount_widget"
-            android:label="widget-date">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_5x2_info" />
-        </receiver>
-
         <receiver
             android:name="AppLauncherWidget_square"
             android:label="Widget Square">

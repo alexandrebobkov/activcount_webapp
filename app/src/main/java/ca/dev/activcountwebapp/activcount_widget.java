@@ -65,10 +65,10 @@ public class activcount_widget extends AppWidgetProvider {
     private String ACTION_DATE_ALARM = "WidgetDateAlarm";
 
     /** FONTS **/
-    private static String path_font_comfortaa   = "fonts/Comfortaa-Regular.ttf";
-    private static String path_font_archistico  = "fonts/Archistico_Simple.ttf";
-    private static String path_font_fff_tusj    = "fonts/FFF_Tusj.ttf";
-    private static String path_font_jura_light  = "fonts/Jura-Light.ttf";
+    private static String path_font_comfortaa   = "fonts/comfortaa-regular.ttf";
+    private static String path_font_archistico  = "fonts/archistico_simple.ttf";
+    private static String path_font_fff_tusj    = "fonts/fff_tusj.ttf";
+    private static String path_font_jura_light  = "fonts/jura_light.ttf";
 
 
     public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
@@ -147,7 +147,7 @@ public class activcount_widget extends AppWidgetProvider {
         c.startActivity(mailClient);
     }
 
-    /*@Override
+    @Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -167,7 +167,7 @@ public class activcount_widget extends AppWidgetProvider {
         }
 
         manager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, service);
-    }*/
+    }
 
     @Override
     public void onEnabled(Context context) {
