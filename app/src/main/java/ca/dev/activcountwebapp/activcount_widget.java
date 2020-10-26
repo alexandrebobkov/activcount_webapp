@@ -147,7 +147,7 @@ public class activcount_widget extends AppWidgetProvider {
         c.startActivity(mailClient);
     }
 
-    @Override
+    /*@Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -167,7 +167,7 @@ public class activcount_widget extends AppWidgetProvider {
         }
 
         manager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, service);
-    }
+    }*/
 
     @Override
     public void onEnabled(Context context) {

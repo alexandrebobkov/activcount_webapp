@@ -39,7 +39,7 @@
 
         <receiver
             android:name="AppLauncherWidget_square"
-            android:label="widget-square">
+            android:label="Widget Square">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

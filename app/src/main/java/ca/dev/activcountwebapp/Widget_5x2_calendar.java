@@ -120,12 +120,14 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
 
         // Setup logo icon to launch webview as a pending intent.
         Intent intentWeb = new Intent (context, MainActivity.class);
-        Intent contactsWeb = new Intent (context, ContactInfoWebPage.class);
+        /*Intent contactsWeb = new Intent (context, ContactInfoWebPage.class);*/
+
         // Wrap it all in a pending intent to send a broadcast.
         // Use the app widget ID as the request code (third argument) so that
         // each intent is unique.
         PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent pendingContactsWebPage = PendingIntent.getActivity(context,appWidgetId,contactsWeb,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        /*PendingIntent pendingContactsWebPage = PendingIntent.getActivity(context,appWidgetId,contactsWeb,PendingIntent.FLAG_UPDATE_CURRENT);*/
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
         // Date format NN MMM, YYYY
@@ -176,11 +178,11 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
+    /*@Override
     public void onUpdate (Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        final Intent i = new Intent (context, UpdateService.class);
+        //final Intent i = new Intent (context, UpdateWidgetService.class);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -196,7 +198,7 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
         }
 
         manager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, service);
-    }
+    }*/
 
     @Override
     public void onEnabled(Context context) {
