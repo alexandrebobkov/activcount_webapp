@@ -15,7 +15,7 @@
         tools:ignore="ExtraText">
 
         <receiver
-            android:name="Widget_5x2_calendar"
+            android:name=".Widget_5x2_calendar"
             android:label="Widget date RC">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -26,7 +26,7 @@
         </receiver>
 
         <receiver
-            android:name="AppLauncherWidget_square"
+            android:name=".AppLauncherWidget_square"
             android:label="Widget Square">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

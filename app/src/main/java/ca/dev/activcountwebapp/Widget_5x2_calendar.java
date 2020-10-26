@@ -66,7 +66,7 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
     private PendingIntent service;
 
     /** FONTS **/
-    private static String path_font_comfortaa   = "fonts/comfortaa-regular.ttf";
+    private static String path_font_comfortaa   = "fonts/comfortaa_regular.ttf";
     private static String path_font_archistico  = "fonts/archistico_simple.ttf";
     private static String path_font_fff_tusj    = "fonts/fff_tusj.ttf";
     private static String path_font_jura_light  = "fonts/jura_light.ttf";
