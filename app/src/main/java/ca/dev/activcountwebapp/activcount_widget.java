@@ -65,7 +65,7 @@ public class activcount_widget extends AppWidgetProvider {
     private String ACTION_DATE_ALARM = "WidgetDateAlarm";
 
     /** FONTS **/
-    private static String path_font_comfortaa   = "fonts/comfortaa-regular.ttf";
+    private static String path_font_comfortaa   = "fonts/comfortaa.ttf";
     private static String path_font_archistico  = "fonts/archistico_simple.ttf";
     private static String path_font_fff_tusj    = "fonts/fff_tusj.ttf";
     private static String path_font_jura_light  = "fonts/jura_light.ttf";
@@ -133,8 +133,8 @@ public class activcount_widget extends AppWidgetProvider {
         SimpleDateFormat date_format = new SimpleDateFormat("E d MMM yyyy");
         SimpleDateFormat time_format = new SimpleDateFormat("HH : mm");
 
-        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), path_font_fff_tusj, 70f, context));
-        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 80f, context));
+        views.setImageViewBitmap(R.id.img_time, BuildUpdate(time_format.format(new Date()), path_font_comfortaa, 70f, context));
+        views.setImageViewBitmap(R.id.img_date, BuildUpdate(date_format.format(new Date()), path_font_comfortaa, 80f, context));
         views.setImageViewBitmap(R.id.img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.appwidget_imgtxt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 

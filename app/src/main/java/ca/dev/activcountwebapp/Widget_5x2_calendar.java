@@ -66,10 +66,10 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
     private PendingIntent service;
 
     /** FONTS **/
-    private static String path_font_comfortaa   = "fonts/comfortaa_regular.ttf";
-    private static String path_font_archistico  = "fonts/archistico_simple.ttf";
-    private static String path_font_fff_tusj    = "fonts/fff_tusj.ttf";
-    private static String path_font_jura_light  = "fonts/jura_light.ttf";
+    private static String path_font_comfortaa   = "fonts/comfortaa.ttf";
+    private static String path_font_archistico  = "assets/fonts/archistico_simple.ttf";
+    private static String path_font_fff_tusj    = "assets/fonts/fff_tusj.ttf";
+    private static String path_font_jura_light  = "assets/fonts/jura.ttf";
     private static Calendar time, calendar;
     private int build;
 
@@ -140,9 +140,9 @@ public class Widget_5x2_calendar extends AppWidgetProvider {
 
         views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
         // Display day of week
-        views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
+        views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_comfortaa, 100f, context));
         // Display month
-        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_fff_tusj, 85f, context));
+        views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_comfortaa, 85f, context));
         // Display weekday
         // views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
         // Spell day of month

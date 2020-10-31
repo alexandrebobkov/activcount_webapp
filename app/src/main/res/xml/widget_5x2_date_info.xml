@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
 android:initialKeyguardLayout="@layout/activcount_widget_5x2"
 android:initialLayout="@layout/activcount_widget_5x2"
-android:minWidth="330dp"
+android:minWidth="250dp"
 android:minHeight="110dp"
 android:previewImage="@drawable/widget_5x2"
 android:resizeMode="horizontal|vertical"

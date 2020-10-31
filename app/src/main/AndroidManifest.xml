@@ -15,6 +15,17 @@
         tools:ignore="ExtraText">
 
         <receiver
+            android:name=".activcount_widget"
+            android:label="Widget date">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/activcount_widget_info" />
+        </receiver>
+
+        <receiver
             android:name=".Widget_5x2_calendar"
             android:label="Widget date RC">
             <intent-filter>
