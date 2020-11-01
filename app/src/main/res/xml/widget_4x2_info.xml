@@ -3,7 +3,7 @@
 android:initialKeyguardLayout="@layout/activcount_widget_4x2"
 android:initialLayout="@layout/activcount_widget_4x2"
 android:minWidth="250dp"
-android:minHeight="40dp"
+android:minHeight="110dp"
 android:previewImage="@drawable/widget_5x2"
 android:resizeMode="horizontal|vertical"
 android:updatePeriodMillis="15000"

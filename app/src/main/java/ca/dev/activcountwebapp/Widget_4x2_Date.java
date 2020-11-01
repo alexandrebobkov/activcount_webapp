@@ -145,9 +145,15 @@ public class Widget_4x2_Date extends AppWidgetProvider {
 
         // Display month
         //views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_comfortaa, 85f, context));
+        views.setTextViewText(R.id.widget_4x2_body_weekday, date_format.format(new Date()));
 
         // Display Contact information
         views.setTextViewText(R.id.widget_4x2_footer_contact, contact_phone);
+
+        // Display logo
+        views.setImageViewResource(R.id.widget_4x2_logo, R.mipmap.ic_logo);
+        // Launch webview if logo was clicked
+        views.setOnClickPendingIntent(R.id.widget_4x2_logo, pendingWeb);
 
 
         // Display weekday
@@ -155,8 +161,8 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         // Spell day of month
         //views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(dateToString(hr), path_font_fff_tusj, 80f, context));
         /*
-        views.setImageViewResource(R.id.widget_5x2_logo, R.mipmap.ic_logo);
-        views.setOnClickPendingIntent(R.id.widget_5x2_logo, pendingWeb);
+
+
         views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
         views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
 

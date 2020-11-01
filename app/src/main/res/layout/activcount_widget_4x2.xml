@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:updatePeriodMillis="15000"
-    android:padding="@dimen/widget_margin">
+    android:padding="@dimen/widget_margin"
+    android:background="#22FFFFFF">
 
     <LinearLayout
         android:id="@+id/widget_4x2_body"
@@ -14,40 +15,53 @@
         android:layout_marginTop="0dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/widget_4x2_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="right"
+            android:background="#00FFFFFF"
+            android:clickable="true"
+            android:contentDescription="@string/item"
+            android:cropToPadding="true"
+            android:focusable="true"
+
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/logo"
+            tools:srcCompat="@drawable/logo"></ImageView>
+
         <TextView
             android:id="@+id/widget_4x2_body_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="60sp"
-            android:background="#22FFFFFF"
-            android:fontFamily="@font/comfortaa"
-            android:gravity="center|center_vertical"
-            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/kalam"
+            android:textAlignment="textStart"
             android:textColor="#39373E"
-            android:textSize="20sp"
-            tools:text="Jan 1, 2019">
-        </TextView>
+            android:textSize="30sp"
+            tools:text="Jan 1, 2019"></TextView>
+
         <TextView
             android:id="@+id/widget_4x2_body_weekday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="50sp"
-            android:background="#22FFFFFF"
-            android:fontFamily="@font/comfortaa"
-            android:gravity="center|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/kalam"
             android:textAlignment="center"
             android:textColor="#39373E"
             android:textSize="20sp"
-            tools:text="Jan 1, 2019">
-        </TextView>
+            tools:text="Jan 1, 2019"></TextView>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/widget_4x2_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/widget_4x2_body"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:orientation="vertical">
 
