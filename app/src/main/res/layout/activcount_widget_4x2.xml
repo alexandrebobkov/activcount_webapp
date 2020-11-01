@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:fontFamily="@font/kalam"
+            android:fontFamily="@font/jura_semibold"
             android:textAlignment="textStart"
             android:textColor="#39373E"
             android:textSize="30sp"
@@ -54,7 +54,8 @@
             android:fontFamily="@font/kalam"
             android:textAlignment="center"
             android:textColor="#39373E"
-            android:textSize="20sp"
+            android:textSize="30sp"
+            android:textStyle="italic"
             tools:text="Jan 1, 2019"></TextView>
     </LinearLayout>
 
@@ -65,19 +66,30 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#39373E">
 
         <TextView
-            android:id="@+id/widget_4x2_footer_contact"
+            android:id="@+id/widget_4x2_footer_bizname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="30sp"
             android:background="#39373E"
             android:fontFamily="@font/jura_semibold"
             android:gravity="center|center_vertical"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="10sp"
+            android:textSize="14sp"
+            tools:text="@string/contact_phone"></TextView>
+        <TextView
+            android:id="@+id/widget_4x2_footer_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#39373E"
+            android:fontFamily="@font/jura_semibold"
+            android:gravity="center|center_vertical"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
             tools:text="@string/contact_phone"></TextView>
 
     </LinearLayout>

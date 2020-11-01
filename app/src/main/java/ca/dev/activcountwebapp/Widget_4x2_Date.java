@@ -49,7 +49,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.view.View;
 import android.widget.RemoteViews;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
@@ -62,10 +64,13 @@ public class Widget_4x2_Date extends AppWidgetProvider {
     private PendingIntent service;
 
     /** FONTS **/
-    private static String path_font_comfortaa   = "fonts/comfortaa.ttf";
-    private static String path_font_archistico  = "assets/fonts/archistico_simple.ttf";
-    private static String path_font_fff_tusj    = "assets/fonts/fff_tusj.ttf";
+    private static String path_font_archistico  = "assets/fonts/Archistico_Simple.ttf";
+    /*
+    private static String path_font_comfortaa   = "font/comfortaa.ttf";
+    private static String path_font_fff_tusj    = "font/fff_tusj.ttf";
+
     private static String path_font_jura_light  = "assets/fonts/jura.ttf";
+     */
     private static Calendar time, calendar;
     private int build;
     private static String contact_phone         = "(343) 202 - 2043 | books@activcount.ca";
@@ -127,19 +132,20 @@ public class Widget_4x2_Date extends AppWidgetProvider {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_4x2);
         // Date format NN MMM, YYYY
-        SimpleDateFormat date_format = new SimpleDateFormat("MMM d, yyyy");
+        SimpleDateFormat date_format = new SimpleDateFormat("EEEE, MMM d, yyyy");
         // Other formats: "MMMM" "d MMM. EEEE" "yyyy"
         // Week day format
         SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
 
-        // Display day of week
-        views.setTextViewText(R.id.widget_4x2_body_day, day_format.format(new Date()));
 
-        // Display month
+
+        // Display full date
         views.setTextViewText(R.id.widget_4x2_body_weekday, date_format.format(new Date()));
 
         // Display Contact information
         views.setTextViewText(R.id.widget_4x2_footer_contact, contact_phone);
+        // Display company name
+        views.setTextViewText(R.id.widget_4x2_footer_bizname, biz_name);
 
         // Display logo
         views.setImageViewResource(R.id.widget_4x2_logo, R.mipmap.ic_logo);
