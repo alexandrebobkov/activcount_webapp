@@ -28,6 +28,8 @@
             android:focusable="true"
 
             android:scaleType="fitCenter"
+            android:scaleX=".5"
+            android:scaleY=".5"
             app:srcCompat="@drawable/logo"
             tools:srcCompat="@drawable/logo"></ImageView>
 

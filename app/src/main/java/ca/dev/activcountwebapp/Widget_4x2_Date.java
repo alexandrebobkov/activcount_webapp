@@ -68,10 +68,11 @@ public class Widget_4x2_Date extends AppWidgetProvider {
     private static String path_font_jura_light  = "assets/fonts/jura.ttf";
     private static Calendar time, calendar;
     private int build;
-    private static String contact_phone = "(343) 202 - 2043 | books@activcount.ca";
+    private static String contact_phone         = "(343) 202 - 2043 | books@activcount.ca";
+    private static String biz_name              = "Alexander Specialised Accounting Services";
 
 
-    public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
+    /*public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
 
         Paint paint = new Paint();
         paint.setTextSize(size);
@@ -89,13 +90,12 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         Canvas canvas = new Canvas(image);
         canvas.drawText(text, 0, baseline, paint);
         return image;
-    }
+    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId) {
 
-        //MainActivity.setWebPageUrl("https://www.activcount.ca");
         MainActivity.setWebPageUrl("https://mobile.activcount.ca");
 
         time = Calendar.getInstance();
@@ -123,28 +123,19 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         // Use the app widget ID as the request code (third argument) so that
         // each intent is unique.
         PendingIntent pendingWeb = PendingIntent.getActivity(context,appWidgetId,intentWeb,PendingIntent.FLAG_UPDATE_CURRENT);
-
         PendingIntent pendingContactsWebPage = PendingIntent.getActivity(context,appWidgetId,contactsWeb,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_5x2);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_4x2);
         // Date format NN MMM, YYYY
         SimpleDateFormat date_format = new SimpleDateFormat("MMM d, yyyy");
-        //SimpleDateFormat date_format = new SimpleDateFormat("MMMM");
-        //SimpleDateFormat date_format = new SimpleDateFormat("d MMM. EEEE");
+        // Other formats: "MMMM" "d MMM. EEEE" "yyyy"
         // Week day format
         SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
-        //SimpleDateFormat day_format = new SimpleDateFormat("yyyy");
-
-        // On-Click event
-        //views.setOnClickPendingIntent(R.id.widget_5x2_img_date, pendingUpdate);
 
         // Display day of week
-        //views.setImageViewBitmap(R.id.widget_5x2_img_day, BuildUpdate(day_format.format(new Date()), path_font_comfortaa, 100f, context));
         views.setTextViewText(R.id.widget_4x2_body_day, day_format.format(new Date()));
 
         // Display month
-        //views.setImageViewBitmap(R.id.widget_5x2_img_date, BuildUpdate(date_format.format(new Date()), path_font_comfortaa, 85f, context));
         views.setTextViewText(R.id.widget_4x2_body_weekday, date_format.format(new Date()));
 
         // Display Contact information
@@ -152,44 +143,17 @@ public class Widget_4x2_Date extends AppWidgetProvider {
 
         // Display logo
         views.setImageViewResource(R.id.widget_4x2_logo, R.mipmap.ic_logo);
-        // Launch webview if logo was clicked
+        // Launch website inside WebvVew if user clicked on a logo
         views.setOnClickPendingIntent(R.id.widget_4x2_logo, pendingWeb);
 
-
-        // Display weekday
-        // views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(day_format.format(new Date()), path_font_fff_tusj, 100f, context));
-        // Spell day of month
-        //views.setImageViewBitmap(R.id.widget_5x2_img_weekday, BuildUpdate(dateToString(hr), path_font_fff_tusj, 80f, context));
-        /*
-
-
-        views.setImageViewBitmap(R.id.widget5x2_img_business_name, BuildUpdate("Alexander Specialised Accounting Services", path_font_comfortaa,80f, context));
-        views.setImageViewBitmap(R.id.widget5x2_img_txt_contact, BuildUpdate("+1 (343) 202 - 2043", path_font_comfortaa, 40f, context));
-
-        // Set color
-        views.setTextColor(R.id.widget5x2_txt_stats, Color.WHITE);
-        views.setTextColor(R.id.widget5x2_txt_week_num_year, Color.WHITE);
-        views.setTextColor(R.id.widget5x2_txt_week_num_month, Color.WHITE);
-
-        //views.setTextViewText(R.id.widget5x2_txt_stats, "week of year: " +calendar.get(Calendar.WEEK_OF_YEAR) + " | week of month: " +calendar.get(Calendar.WEEK_OF_MONTH)); // calendar.getWeekYear());//(
-        //views.setTextViewText(R.id.widget5x2_txt_week_num_year, "week: " +calendar.get(Calendar.WEEK_OF_YEAR) + " of " +calendar.getMaximum(Calendar.WEEK_OF_YEAR) + " or " + Float.toString(round(((float)(calendar.get(Calendar.WEEK_OF_YEAR) / (float)calendar.getMaximum(Calendar.WEEK_OF_YEAR))*100f))) + "%");
-        //views.setTextViewText(R.id.widget5x2_txt_week_num_month, "week of month: " +calendar.get(Calendar.WEEK_OF_MONTH));
-
-        //views.setTextViewText(R.id.widget5x2_txt_stats, "week: " +(new Date().toString()));
-
-
-        // Display week number of the year
-        // Display week number of the month
-
-
-        // Instruct the widget manager to update the widget*/
+        // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 
-    public void launch_web(Context c) {
+    /*public void launch_web(Context c) {
         Intent mailClient = new Intent(Intent.ACTION_VIEW);
         c.startActivity(mailClient);
-    }
+    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -224,6 +188,7 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
+    // Spells out digit
     private String dateToString (int num) {
         String s = "";
 
