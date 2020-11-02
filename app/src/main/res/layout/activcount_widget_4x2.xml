@@ -48,7 +48,7 @@
             android:fontFamily="@font/archistico_simple"
             android:textAlignment="center"
             android:textColor="#39373E"
-            android:textSize="40sp"
+            android:textSize="36sp"
             android:textStyle="bold|italic"
             tools:text="Monday"></TextView>
         <TextView

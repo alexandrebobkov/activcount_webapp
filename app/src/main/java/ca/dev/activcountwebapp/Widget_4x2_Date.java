@@ -109,7 +109,7 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         SimpleDateFormat date_format = new SimpleDateFormat("EEEE");
         // Other formats: "MMMM" "d MMM. EEEE" "yyyy"
         // Week day format
-        SimpleDateFormat day_format = new SimpleDateFormat("MMMM d, yyyy");
+        SimpleDateFormat day_format = new SimpleDateFormat("MMMM d");
 
         // Display week day
         views.setTextViewText(R.id.widget_4x2_body_weekday, date_format.format(new Date()));

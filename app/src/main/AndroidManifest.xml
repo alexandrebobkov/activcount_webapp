@@ -25,28 +25,6 @@
                 android:resource="@xml/widget_4x2_info" />
         </receiver>
 
-        <receiver
-            android:name=".Widget_5x2_calendar"
-            android:label="Widget date RC">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_5x2_date_info" />
-        </receiver>
-
-        <receiver
-            android:name=".AppLauncherWidget_square"
-            android:label="Widget Square">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/app_launcher_widget_1x1_info" />
-        </receiver>
-
         <activity
             android:name=".MainActivity">
             <intent-filter>
