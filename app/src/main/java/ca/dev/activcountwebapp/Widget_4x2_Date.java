@@ -24,7 +24,7 @@
 /*
 *
 *  Date Created:        August 30, 2020
-*  Last time updated:   September 7, 2020
+*  Last time updated:   November 1, 2020
 *  Revision:
 *
 *  Author:              Alexandre Bobkov
@@ -43,17 +43,12 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -64,38 +59,17 @@ public class Widget_4x2_Date extends AppWidgetProvider {
     private PendingIntent service;
 
     /** FONTS **/
-    private static String path_font_archistico  = "assets/fonts/Archistico_Simple.ttf";
+    private static String path_font_archistico  = "assets/fonts/archistico_simple.ttf";
     /*
     private static String path_font_comfortaa   = "font/comfortaa.ttf";
     private static String path_font_fff_tusj    = "font/fff_tusj.ttf";
-
     private static String path_font_jura_light  = "assets/fonts/jura.ttf";
-     */
+    */
     private static Calendar time, calendar;
     private int build;
     private static String contact_phone         = "(343) 202 - 2043 | books@activcount.ca";
     private static String biz_name              = "Alexander Specialised Accounting Services";
 
-
-    /*public static Bitmap BuildUpdate (String text, String font_path, float size, Context context) {
-
-        Paint paint = new Paint();
-        paint.setTextSize(size);
-        Typeface ourCustomTypeface = Typeface.createFromAsset(context.getAssets(), font_path);
-        paint.setTypeface(ourCustomTypeface);
-        paint.setColor(Color.parseColor("#FFFFFF"));
-        paint.setTextAlign(Paint.Align.LEFT);
-        paint.setSubpixelText(true);
-        paint.setAntiAlias(true);
-        float baseline = -paint.ascent();
-        int width = (int) (paint.measureText(text) + 0.5f);
-        int height = (int) (baseline+paint.descent() + 0.5f);
-        Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-        //Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-        Canvas canvas = new Canvas(image);
-        canvas.drawText(text, 0, baseline, paint);
-        return image;
-    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
@@ -132,16 +106,17 @@ public class Widget_4x2_Date extends AppWidgetProvider {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activcount_widget_4x2);
         // Date format NN MMM, YYYY
-        SimpleDateFormat date_format = new SimpleDateFormat("EEEE, MMM d, yyyy");
+        SimpleDateFormat date_format = new SimpleDateFormat("EEEE");
         // Other formats: "MMMM" "d MMM. EEEE" "yyyy"
         // Week day format
-        SimpleDateFormat day_format = new SimpleDateFormat("EEEE");
+        SimpleDateFormat day_format = new SimpleDateFormat("MMMM d, yyyy");
 
-
-
-        // Display full date
+        // Display week day
         views.setTextViewText(R.id.widget_4x2_body_weekday, date_format.format(new Date()));
+        // Display date
+        views.setTextViewText(R.id.widget_4x2_body_day, day_format.format(new Date()));
 
+        Typeface typeface = ResourcesCompat.getFont(context, R.font.jura);
         // Display Contact information
         views.setTextViewText(R.id.widget_4x2_footer_contact, contact_phone);
         // Display company name
@@ -155,11 +130,6 @@ public class Widget_4x2_Date extends AppWidgetProvider {
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
-
-    /*public void launch_web(Context c) {
-        Intent mailClient = new Intent(Intent.ACTION_VIEW);
-        c.startActivity(mailClient);
-    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -192,45 +162,5 @@ public class Widget_4x2_Date extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
-    }
-
-    // Spells out digit
-    private String dateToString (int num) {
-        String s = "";
-
-        if (num == 0) s = "zero";
-        else if (num == 1) s = "First";
-        else if (num == 2) s = "Second";
-        else if (num == 3) s = "Third";
-        else if (num == 4) s = "Fourth";
-        else if (num == 5) s = "Fifth";
-        else if (num == 6) s = "Sixth";
-        else if (num == 7) s = "Seventh";
-        else if (num == 8) s = "Eighth";
-        else if (num == 9) s = "Ninth";
-        else if (num == 10) s = "Tenth";
-        else if (num == 11) s = "Eleventh";
-        else if (num == 12) s = "Twelveth";
-        else if (num == 13) s = "Thirteenth";
-        else if (num == 14) s = "Fourteenth";
-        else if (num == 15) s = "Fifteenth";
-        else if (num == 16) s = "Sixteenth";
-        else if (num == 17) s = "Seventeenth";
-        else if (num == 18) s = "Eighteenth";
-        else if (num == 19) s = "Nineteenth";
-        else if (num == 20) s = "Twentiest";
-        else if (num == 21) s = "Twenty First";
-        else if (num == 22) s = "Twenty Second";
-        else if (num == 23) s = "Twenty Third";
-        else if (num == 24) s = "Twenty Fourth";
-        else if (num == 25) s = "Twenty Fifth";
-        else if (num == 26) s = "Twenty Sixth";
-        else if (num == 27) s = "Twenty Seventh";
-        else if (num == 28) s = "Twenty Eighth";
-        else if (num == 29) s = "Twenty Nineth";
-        else if (num == 30) s = "Thirtiest";
-        else if (num == 31) s = "Thirty First";
-
-        return s;
     }
 }
