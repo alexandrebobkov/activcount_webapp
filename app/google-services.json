@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "513612348480",
-    "firebase_url": "https://activcount-1600105814838.firebaseio.com",
-    "project_id": "activcount-1600105814838",
-    "storage_bucket": "activcount-1600105814838.appspot.com"
+    "project_number": "867063601893",
+    "firebase_url": "https://mobileactivcountca.firebaseio.com",
+    "project_id": "mobileactivcountca",
+    "storage_bucket": "mobileactivcountca.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:513612348480:android:07290fac5cd321b89833a5",
+        "mobilesdk_app_id": "1:867063601893:android:272d05f9619f05c077120c",
         "android_client_info": {
           "package_name": "ca.dev.activcountwebapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "513612348480-6haeko0v982k7le5rt8oqq53lq47h97r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ca.dev.activcountwebapp",
-            "certificate_hash": "43e142da3486aecc7ed47574b1ecfef0cc212dcc"
-          }
-        },
-        {
-          "client_id": "513612348480-64s158llun6hj82291qd54ehujg4jabm.apps.googleusercontent.com",
+          "client_id": "867063601893-d22guvsl2d40sg6p0q6hpmh0brvhnv0d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCixxLmxk1ppXGtRewaVOjJtxK0PhzppVU"
+          "current_key": "AIzaSyCTrY4fGOzGMMeqlVvislaVxMKO9FQIXGk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "513612348480-64s158llun6hj82291qd54ehujg4jabm.apps.googleusercontent.com",
+              "client_id": "867063601893-d22guvsl2d40sg6p0q6hpmh0brvhnv0d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

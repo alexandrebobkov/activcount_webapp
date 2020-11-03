@@ -66,7 +66,7 @@ public class activcount_widget extends AppWidgetProvider {
 
     /** FONTS **/
     private static String path_font_comfortaa   = "fonts/comfortaa.ttf";
-    private static String path_font_archistico  = "fonts/archistico_simple.ttf";
+    private static String path_font_archistico  = "font/archistico_simple.ttf";
     private static String path_font_fff_tusj    = "fonts/fff_tusj.ttf";
     private static String path_font_jura_light  = "fonts/jura_light.ttf";
 
